@@ -15,29 +15,25 @@ public class GameRunner {
         game= new GameState();
         bombo = new Bombo();
 
-        player1 = new Jugador("Alvaro");
-        player2 = new Jugador("Kys");
+        String player1Name = GamePrinter.LeerNombre(1);
+        String player2Name = GamePrinter.LeerNombre(2);
 
-        game.initPlayerNumbers();
+        player1 = new Jugador(player1Name,1);
+        player2 = new Jugador(player2Name,2);
 
-        System.out.println("Jugador 1" +player1.getNombre()+" Le ha tocado el numero " +game.getPlayer1Num());
-        System.out.println("Jugador 2" +player2.getNombre()+" Le ha tocado el numero " +game.getPlayer2Num());
+        GamePrinter.printNumerosJugadores(game, player1 , player2);
 
-        int result = 0;
-
-        while (result == 0){
+        while (!game.seAcabo()){
 
             int num = bombo.entregarNum();
-            result = game.checkNumber(num);
+            game.checkNumber(num);
+            GamePrinter.printNumero(num);
+            GamePrinter.printMovimiento(game, player1, player2);
+
+
         }
 
-        if (result == 1){
-            System.out.println("Ha ganado el jugador" +player1.getNombre());
-        }
-        else{
-            System.out.println("Ha ganado el jugador" +player2.getNombre());
-        }
+        GamePrinter.printGanador(game.getGanador(), player1, player2);
+
     }
-
-
 }

@@ -6,19 +6,23 @@ package com.company;
 public class Jugador {
 
     private String nombre;
+    private int numero;
 
-    public Jugador(String nombre) {
+    public Jugador(String nombre, int num) {
         this.nombre = nombre;
+        this.numero = num;
     }
 
     public String getNombre() {
         return nombre;
     }
+    public int getNumero() {return numero;}
 
     @Override
     public String toString() {
         return "Jugador{" +
                 "nombre='" + nombre + '\'' +
+                ", numero=" +numero +
                 '}';
     }
 }

@@ -7,11 +7,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Bombo {
 
-    private List <Integer> numeros = new ArrayList<>();
+    private List<Integer> numeros = new ArrayList<>();
 
     public Bombo() {
 
-        for (int i=0 ; i<10 ; i++){
+        for (int i = 0; i < 10; i++) {
             numeros.add(i);
         }
 
@@ -19,15 +19,10 @@ public class Bombo {
 
     }
 
-    public Integer entregarNum(){
+    public Integer entregarNum() {
 
-        return numeros.remove(numeros.size()-1);
+        return numeros.remove(numeros.size() - 1);
 
     }
-
-    public boolean quedanNum(){
-
-        return numeros.isEmpty();
-    }
-
 }
+
